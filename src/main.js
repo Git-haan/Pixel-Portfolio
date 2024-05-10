@@ -1,6 +1,6 @@
 import { scaleFactor } from "./constants";
 import { k } from "./kaboomCtx";
-import { displayDialouge } from "./utils";
+import { displayDialogue } from "./utils";
 
 k.loadSprite("spritesheet", "./spritesheet.png", {
     sliceX: 39,
@@ -19,7 +19,7 @@ k.loadSprite("map", "./map.png");
 
 k.setBackground(k.Color.fromHex("#000000"));
 
-k.scene("main", async () => {
+k.scene("game", async () => {
     const mapData = await (await fetch("./map.json")).json();
     const layers = mapData.layers;
 
@@ -63,7 +63,7 @@ k.scene("main", async () => {
                 if (boundary.name) {
                     player.onCollide(boundary.name, () => {
                         player.isInDialogue = true;
-                        displayDialouge("You can't go that way!", () => {
+                        displayDialogue("You can't go that way!", () => {
                             player.isInDialogue = false;
                         });
                     });
@@ -87,8 +87,8 @@ k.scene("main", async () => {
     }
 
     k.onUpdate(() => {
-        k.camPos(player.pos.x, player.pos.y + 100);
+        k.camPos(player.pos.x, player.pos.y - 100);
     });
 });
 
-k.go("main");
+k.go("game");
