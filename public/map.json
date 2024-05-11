@@ -295,7 +295,7 @@
                  "type":"",
                  "visible":true,
                  "width":48,
-                 "x":304,
+                 "x":320,
                  "y":112
                 }, 
                 {
@@ -306,7 +306,7 @@
                  "type":"",
                  "visible":true,
                  "width":16,
-                 "x":352,
+                 "x":304,
                  "y":112
                 }, 
                 {
@@ -367,7 +367,7 @@
                 {
                  "height":16,
                  "id":35,
-                 "name":"table",
+                 "name":"",
                  "rotation":0,
                  "type":"",
                  "visible":true,
@@ -395,8 +395,8 @@
                  "type":"",
                  "visible":true,
                  "width":0,
-                 "x":247.666666666667,
-                 "y":217.666666666667
+                 "x":230,
+                 "y":208
                 }],
          "opacity":1,
          "type":"objectgroup",
