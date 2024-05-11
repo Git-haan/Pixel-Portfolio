@@ -1,6 +1,8 @@
-import { dialogueData, scaleFactor } from "./constants";
+import { dialogueData, scaleFactor } from "./components/constants";
 import { k } from "./kaboomCtx";
-import { displayDialogue, screenSize } from "./utils";
+import { displayDialogue, screenSize } from "./components/text";
+import { moveUp, moveDown, moveLeft, moveRight, stop } from "./components/movement";
+
 
 
 k.loadSprite("spritesheet", "./spritesheet.png", {
@@ -100,96 +102,76 @@ k.scene("game", async () => {
     // Movement using wasd
     k.onKeyDown("w", () => {
         if (player.isInDialogue) return;
-        player.move(0, -player.speed);
-        player.direction = "up";
-        if (player.curAnim() !== "walk-up") {
-            player.play("walk-up");
-        }
+        moveUp(player, player.speed);
     });
 
     k.onKeyDown("s", () => {
         if (player.isInDialogue) return;
-        player.move(0, player.speed);
-        player.direction = "down";
-        if (player.curAnim() !== "walk-down") {
-            player.play("walk-down");
-        }
+        moveDown(player, player.speed);
     });
 
     k.onKeyDown("a", () => {
         if (player.isInDialogue) return;
-        player.move(-player.speed, 0);
-        player.direction = "left";
-        player.flipX = true;
-        if (player.curAnim() !== "walk-side") {
-            player.play("walk-side");
-        }
+        moveLeft(player, player.speed);
     });
 
     k.onKeyDown("d", () => {
         if (player.isInDialogue) return;
-        player.move(player.speed, 0);
-        player.direction = "right";
-        player.flipX = false;
-        if (player.curAnim() !== "walk-side") {
-            player.play("walk-side");
-        }
+        moveRight(player, player.speed);
     });
 
     k.onKeyRelease("w", () => {
-        if (player.direction === "up") {
-            player.stop();
-            player.play("idle-up");
-        }
+        stop(player);
     });
 
     k.onKeyRelease("s", () => {
-        if (player.direction === "down") {
-            player.stop();
-            player.play("idle-down");
-        }
+        stop(player);
     });
 
     k.onKeyRelease("a", () => {
-            player.stop();
-            player.play("idle-side");
+        stop(player);
     });
 
     k.onKeyRelease("d", () => {
-            player.stop();
-            player.play("idle-side");
+        stop(player);
     });
 
 
     // movemnt with arrow keys
     k.onKeyDown("up", () => {
         if (player.isInDialogue) return;
-        player.move(0, -player.speed);
-        player.play("walk-up");
-        player.direction = "up";
+        moveUp(player, player.speed);
     });
 
     k.onKeyDown("down", () => {
         if (player.isInDialogue) return;
-        player.move(0, player.speed);
-        player.play("walk-down");
-        player.direction = "down";
+        moveDown(player, player.speed);
     });
 
     k.onKeyDown("left", () => {
         if (player.isInDialogue) return;
-        player.move(-player.speed, 0);
-        player.direction = "left";
-        player.flipX = true;
-        player.play("walk-side");
+        moveLeft(player, player.speed);
     });
 
     k.onKeyDown("right", () => {
         if (player.isInDialogue) return;
-        player.move(player.speed, 0);
-        player.direction = "right";
-        player.flipX = false;
-        player.play("walk-side");
+        moveRight(player, player.speed);
+    });
+
+    k.onKeyRelease("up", () => {
+        stop(player);
+    });
+
+    k.onKeyRelease("down", () => {
+        stop(player);
+    });
+
+    k.onKeyRelease("left", () => {
+        stop(player);
+    });
+
+    k.onKeyRelease("right", () => {
+        stop(player);
     });
 
     //movement with mouse
@@ -204,52 +186,29 @@ k.scene("game", async () => {
         const lowerBound = 50;
         const upperBound = 125;
 
-        if (mouseAngle > lowerBound && mouseAngle < upperBound && player.curAnim() !== "walk-up") {
-            player.play("walk-up");
-            player.direction = "up";
+        if (mouseAngle > lowerBound && mouseAngle < upperBound) {
+            moveUp(player, 50);
             return;
         }
 
-        if (mouseAngle > -upperBound && mouseAngle < -lowerBound && player.curAnim() !== "walk-down") {
-            player.play("walk-down");
-            player.direction = "down";
+        if (mouseAngle > -upperBound && mouseAngle < -lowerBound) {
+            moveDown(player, 50);
             return;
         }
 
         if (Math.abs(mouseAngle) > upperBound) {
-            player.flipX = false;
-            if (player.curAnim() !== "walk-side") {
-                player.play("walk-side");
-            }
-            player.direction = "right";
+            moveRight(player, 50);
             return;
         }
 
         if (Math.abs(mouseAngle) < lowerBound) {
-            player.flipX = true;
-            if (player.curAnim() !== "walk-side") {
-                player.play("walk-side");
-            }
-            player.direction = "left";
+            moveLeft(player, 50);
             return;
         }
     });
 
     k.onMouseRelease(() => {
-        player.stop();
-        if (player.direction === "down") {
-            player.play("idle-down");
-            return;
-        }
-
-        if (player.direction === "up") {
-            player.play("idle-up");
-            return;
-        }
-
-        if (player.direction === "left" || player.direction === "right") {
-            player.play("idle-side");
-        }
+        stop(player);
     });
 
 });
