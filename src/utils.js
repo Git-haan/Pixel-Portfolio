@@ -17,13 +17,29 @@ export function displayDialogue(text, onDisplayEnd) {
         clearInterval(interval);
     }, 5);
 
-    const onCloseBtnClick = () => {
-        onDisplayEnd();
+    const closeBtn = document.getElementById("close");
+
+    closeBtn.onclick = () => {
         dialogueUI.style.display = "none";
         dialogue.innerText = "";
         clearInterval(interval);
-        closeBtn.removeEventListener("click", onCloseBtnClick);
-    }
+        onDisplayEnd();
+    };
+    
+    window.addEventListener("keydown", (key) => {
+        if (key.code === "Enter" || key.code === "Space" || key.code === "Escape") {
+            closeBtn.click();
+        }
+    });
 
-    closeBtn.addEventListener("click", onCloseBtnClick);
+}
+
+export function screenSize(k) {
+    const resizeFactor = k.width() / k.height();
+    if (resizeFactor < 1) {
+        k.camScale(k.vec2(1));
+        return;
+    } 
+
+    k.camScale(k.vec2(1.5));
 }

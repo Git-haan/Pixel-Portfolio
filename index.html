@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>🎮</title>
+    <title>Githaan</title>
   </head>
   <body>
     <style>
@@ -44,9 +44,47 @@
         filter: drop-shadow(0 0 0.75rem black);
       }
 
+      #close {
+        display: none; /* Hide the button by default */
+      }
+
+      #note {
+        display:none;
+      }
+
+      @media (max-width: 1024px) {
+        /* Show the button on screens smaller than 600px */
+        #note {
+            display: block;
+        }
+        
+        #close {
+            display: block;
+        }
+
+      }
+
+      #note2 {
+        display:none;
+      }
+
+      #exit-instruction {
+        display: none; /* Hide the instruction by default */
+      }
+
+      @media (min-width: 1025px) {
+        /* Show the instruction on screens larger than 600px */
+        #note2 {
+            display: block;
+        }
+        
+        #exit-instruction {
+            display: block;
+        }
+      }
+
       .ui-text {
         margin: 0;
-        user-select: none;
       }
 
       .ui-close-btn {
@@ -58,7 +96,8 @@
       }
 
       .btn-container {
-        align-items: flex-end;
+        display: flex;
+        align-items: end;
         margin-top: 1rem;
       }
 
@@ -75,17 +114,17 @@
     </style>
     <div id="app">
       <div id="ui">
-        <p class="note">
-          Tap/Click Around To Move!
-          <div id="textbox-container" style="display: none">
-            <div id="textbox">
-              <p id="dialogue" class="ui-text"></p>
-              <div class="btn-container">
-                <button id="close" class="ui-close-btn"></button>
-              </div>
+        <p id="note" class="note"> Tap to Move! </p>
+        <p id="note2" class="note">Press WASD to Move!</p>
+        <div id="textbox-container" style="display: none">
+          <div id="textbox">
+            <p id="dialogue" class="ui-text"></p>
+            <div id="btn-container">
+              <button id="close" class="ui-close-btn">Close</button>
+              <p id="exit-instruction">(Press esc to exit)</p>
             </div>
           </div>
-        </p>
+        </div>
       </div>
       <canvas id="game"></canvas>
     </div>
