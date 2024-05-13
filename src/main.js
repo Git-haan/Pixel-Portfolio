@@ -18,12 +18,13 @@ k.loadSprite("spritesheet", "./spritesheet.png", {
     },
 });
 
-k.loadSprite("map", "./map.png");
-
 k.setBackground(k.Color.fromHex("#000000"));
 
-k.scene("game", async () => {
-    const mapData = await (await fetch("./map.json")).json();
+k.scene("game", async (png, json) => {
+
+    k.loadSprite("map", png);
+
+    const mapData = await (await fetch(json)).json();
     const layers = mapData.layers;
 
     const map = k.add([
@@ -65,14 +66,24 @@ k.scene("game", async () => {
 
                 if (boundary.name) {
                     player.onCollide(boundary.name, () => {
-                        player.isInDialogue = true;
-                        displayDialogue(dialogueData[boundary.name], () => (
-                            player.isInDialogue = false
-                        ));
+                        if (boundary.name === "exit" && player.direction === "down" && player.pos.y > boundary.y) {
+                            k.destroyAll();
+                            k.go("game", "./map2.png", "./map2.json");
+                        }
+                        else if (boundary.name === "house") {
+                            k.destroyAll();
+                            k.go("game", "./map.png", "./map.json");
+                        }
+                        else {
+                            player.isInDialogue = true;
+                            displayDialogue(dialogueData[boundary.name], () => (
+                                player.isInDialogue = false
+                            ));
+                        }
+
                     });
                 }
             }
-            continue;
         }
 
         if (layer.name === "spawnpoint") {
@@ -213,4 +224,4 @@ k.scene("game", async () => {
 
 });
 
-k.go("game");
+k.go("game", "./map.png", "./map.json");

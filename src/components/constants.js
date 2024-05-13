@@ -10,5 +10,11 @@ export const dialogueData = {
   storage: `These are my storage boxes, housing a robust collection of my technical proficiencies as a software developer. I am proficient in JavaScript and Python, and I am currently learning Typescript, React JS, and Tailwind CSS. I am also familiar with Git and SQL.`,
   key: `Recently, I have become particularly drawn to the intricate realm of UI development, where I perceive frameworks as the keys unlocking innovative designs. Delving into the seamless integration of Tailwind CSS and React JS, I am impassioned by the craft of UI/UX Development.`,
   family: `Family is the cornerstone of my life. My family has been my unwavering support system, and I am grateful for their encouragement and guidance. They have instilled in me the values of hard work, perseverance, and integrity.`,
-  exit: `If you would like to exit the portfolio, please close the tab. But before you leave, you are welcome to check out similar projects at Github.com/Git-haan!`,
+  exit: ``,
+
+  "project-1": `I recently utilized CRUD principles to develop a Contacts Application. I designed a robust backend API with the aid of Python/Flask, which leverages SQLAlchemy to connect with the JavaScript/React frontend.`,
+  "project-2": `I developed a Nike-inspired Landing Page utilizing HTML, CSS, and JavaScript, along with Tailwind CSS and React JS. The Landing Page is designed to be visually appealing, and optimized for different screens.`,
+  ladder: `If you would like to exit the portfolio, please close the tab. But before you leave, you are welcome to check out similar projects at Github.com/Git-haan!.`,
+  house: `This is my house. It is a place of comfort and solace, where I can unwind and relax after a long day. I am grateful for the warmth and security it provides.`,
+  sword: `This is my sword. It represents my resilience and determination to overcome challenges. I am always prepared to face obstacles head-on and emerge victorious.`,
 };
