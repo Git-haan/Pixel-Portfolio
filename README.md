@@ -2,7 +2,7 @@
     <h1>Pixel Portfolio</h1>
 </div>
 
-![Gameplay Screenshot](screenshot.png)
+![Gameplay Screenshot](implementation/map2.png)
 
 This Pixel Portfolio is a repository for a highly interactive game developed using the `Kaboom JS Library` with `Terser Dependencies` and a `Vite Server`. The project leverages the `Tiled Software` to custom build maps, incorporating recursive calls to load maps efficiently.
 
@@ -25,8 +25,12 @@ Open [`http://127.0.0.1:5173/`](http://127.0.0.1:5173/) to view it in the browse
 
 ## Maps
 
-![Map 1](public/map.png)
+![Map 1](public/map.png) ![Map 2](public/map2.png) ![Map 3](public/map3.png)
 
-![Map 2](public/map2.png)
+## Gameplay
 
-![Map 3](public/map3.png)
+![Map 1](implementation/map1.png)
+
+![Map 2](implementation/map2_dialogue.png)
+
+![Map 3](implementation/map3_dialogue.png)
