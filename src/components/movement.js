@@ -1,4 +1,5 @@
 export function moveUp(player, speed) {
+    if (player.isInDialogue) return;
     player.move(0, -speed);
     player.direction = "up";
     if (player.curAnim() !== "walk-up") {
@@ -7,6 +8,7 @@ export function moveUp(player, speed) {
 }
 
 export function moveDown(player, speed) {
+    if (player.isInDialogue) return;
     player.move(0, speed);
     player.direction = "down";
     if (player.curAnim() !== "walk-down") {
@@ -15,6 +17,7 @@ export function moveDown(player, speed) {
 }
 
 export function moveLeft(player, speed) {
+    if (player.isInDialogue) return;
     player.move(-speed, 0);
     player.direction = "left";
     player.flipX = true;
@@ -24,6 +27,7 @@ export function moveLeft(player, speed) {
 }
 
 export function moveRight(player, speed) {
+    if (player.isInDialogue) return;
     player.move(speed, 0);
     player.direction = "right";
     player.flipX = false;

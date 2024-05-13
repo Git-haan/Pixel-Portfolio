@@ -13,8 +13,15 @@ export const dialogueData = {
   exit: ``,
 
   "project-1": `I recently utilized CRUD principles to develop a Contacts Application. I designed a robust backend API with the aid of Python/Flask, which leverages SQLAlchemy to connect with the JavaScript/React frontend.`,
-  "project-2": `I developed a Nike-inspired Landing Page utilizing HTML, CSS, and JavaScript, along with Tailwind CSS and React JS. The Landing Page is designed to be visually appealing, and optimized for different screens.`,
+  "project-2": `I developed a Nike-inspired Landing Page utilizing HTML, CSS, and JavaScript, along with Tailwind CSS and React JS.`,
+  "project-2.5": `The Landing Page is designed to be visually appealing, and optimized for different screens (including Iphone and Desktop).`,
   ladder: `If you would like to exit the portfolio, please close the tab. But before you leave, you are welcome to check out similar projects at Github.com/Git-haan!.`,
-  house: `This is my house. It is a place of comfort and solace, where I can unwind and relax after a long day. I am grateful for the warmth and security it provides.`,
+  house: ``,
   sword: `This is my sword. It represents my resilience and determination to overcome challenges. I am always prepared to face obstacles head-on and emerge victorious.`,
+
+  shield: `This game is built using the Kaboom.js library. Kaboom.js is a JavaScript library that simplifies game development by providing a robust set of tools and utilities.`,
+  potion: `One of my proudest projects was a Contacts Application, which I developed using CRUD principles. The application features a backend API built with Python/Flask, which connects to a JavaScript/React frontend via SQLAlchemy.`,
+  "project-3": `I recently finished developing the UI for a REI Adventure Guide Book for the Great Smoky Mountains. The project was built using Node JS and Tailwind CSS, and it is designed with unique visual elements.`,
+  "project-4": `I am currently working on a project that involves developing a dynamic website for a local restaurant. The website will feature a visually appealing design, and it will be optimized for different screen sizes.`,
+  castle: ``,
 };

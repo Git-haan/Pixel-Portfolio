@@ -74,6 +74,14 @@ k.scene("game", async (png, json) => {
                             k.destroyAll();
                             k.go("game", "./map.png", "./map.json");
                         }
+                        else if (boundary.name === "ladder") {
+                            k.destroyAll();
+                            k.go("game", "./map3.png", "./map3.json");
+                        }
+                        else if (boundary.name === "castle") {
+                            k.destroyAll();
+                            k.go("game", "./map2.png", "./map2.json");
+                        }
                         else {
                             player.isInDialogue = true;
                             displayDialogue(dialogueData[boundary.name], () => (
@@ -112,22 +120,18 @@ k.scene("game", async (png, json) => {
 
     // Movement using wasd
     k.onKeyDown("w", () => {
-        if (player.isInDialogue) return;
         moveUp(player, player.speed);
     });
 
     k.onKeyDown("s", () => {
-        if (player.isInDialogue) return;
         moveDown(player, player.speed);
     });
 
     k.onKeyDown("a", () => {
-        if (player.isInDialogue) return;
         moveLeft(player, player.speed);
     });
 
     k.onKeyDown("d", () => {
-        if (player.isInDialogue) return;
         moveRight(player, player.speed);
     });
 
@@ -150,22 +154,18 @@ k.scene("game", async (png, json) => {
 
     // movemnt with arrow keys
     k.onKeyDown("up", () => {
-        if (player.isInDialogue) return;
         moveUp(player, player.speed);
     });
 
     k.onKeyDown("down", () => {
-        if (player.isInDialogue) return;
         moveDown(player, player.speed);
     });
 
     k.onKeyDown("left", () => {
-        if (player.isInDialogue) return;
         moveLeft(player, player.speed);
     });
 
     k.onKeyDown("right", () => {
-        if (player.isInDialogue) return;
         moveRight(player, player.speed);
     });
 
